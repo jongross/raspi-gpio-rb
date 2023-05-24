@@ -53,6 +53,13 @@ class GPIO
     @mode = mode
   end
 
+  # Get the pin mode
+  #
+  # @return [String] pin mode : 'in' or 'out'
+  def get_mode
+    File.open("#{LIB_PATH}/gpio#{@pin}/direction", 'r').read
+  end
+
   # Set the pin mode
   #
   # @param mode [String] pin mode : IN or OUT
